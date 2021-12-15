@@ -1,13 +1,14 @@
 import React from 'react'
 
-const movieList = (props) => {
+const MovieList = (props) => {
   return (
     <>
-    {props.novies.map((movie,index)=> <div>
+    {props.movies.map((movie,index)=> <div>
+      <img src={movie.Poster} alt='movie'></img>
 
-    </div>
-    
-    )}
+    </div>)}
     </>
   )
 }
+
+export default MovieList;

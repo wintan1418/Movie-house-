@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MovieList from './component/movieList';
+import './App.css';
 
 
 const App = ()  => {
@@ -54,10 +57,25 @@ const [movies,setMovies] = useState([
     "Type": "movie",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg"
 },
-])
-return<div>hello world</div>
+]);
+
+const getMoviesRequest =  async () => {
+  const url = 'http://www.omdbapi.com/?i=tt3896198&apikey=578cd09'
+
+  const response = await fetch(url);
+  const responseJson = await response.json();
+
+  console.log(response.Json);
+};
+
+return (
+  <div className='container-fluid'>
+  <div className='row'>
+  <MovieList movies={movies} />
+  </div>
+</div>
   
-      
+);    
 };
 
 export default App;
